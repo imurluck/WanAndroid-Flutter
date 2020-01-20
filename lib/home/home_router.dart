@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:wan_android_client/base/assets/iconfont/AppIcon.dart';
 import 'package:wan_android_client/base/style/colors.dart';
 
 class HomeRouter extends StatelessWidget {
@@ -32,26 +34,27 @@ class HomeContainerState extends State<HomeContainer> {
         currentIndex: _currentItem,
         selectedItemColor: AppColors.accentColor,
         unselectedItemColor: Color(0xFF8798A6),
-        selectedFontSize: 12.0,
+        selectedFontSize: 10.0,
+        unselectedFontSize: 10.0,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.whatshot),
+              icon: Icon(AppIcon.hot),
               title: Text("热门")
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.crop_landscape),
+              icon: Icon(AppIcon.category),
               title: Text("分类")
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.question_answer),
+              icon: Icon(AppIcon.qa),
               title: Text("问答")
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.youtube_searched_for),
+              icon: Icon(AppIcon.search),
               title: Text("搜素")
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.trip_origin),
+              icon: Icon(AppIcon.me),
               title: Text("我的")
           ),
         ],
@@ -63,5 +66,4 @@ class HomeContainerState extends State<HomeContainer> {
       ),
     );
   }
-
 }
