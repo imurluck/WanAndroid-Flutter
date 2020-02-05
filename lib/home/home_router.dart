@@ -58,7 +58,7 @@ class HomeContainerState extends State<HomeContainer> {
         type: BottomNavigationBarType.fixed,
         currentIndex: currentItemIndex,
         selectedItemColor: AppColors.accentColor,
-        unselectedItemColor: Color(0xFF8798A6),
+        unselectedItemColor: AppColors.iconColorInactive,
         selectedFontSize: 10.0,
         unselectedFontSize: 10.0,
         items: <BottomNavigationBarItem>[
