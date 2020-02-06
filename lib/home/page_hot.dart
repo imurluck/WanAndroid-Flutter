@@ -1,5 +1,6 @@
 // jxq
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wan_android_client/base/util/util_toast.dart';
 import '../base/net/service_method.dart';
@@ -70,15 +71,14 @@ class ArticleItemWidget extends StatelessWidget {
         print("点击");
       },
       child: Container(
-        width:374,
-        height: 121,
+        //width: 374,
+        //height: 138,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
         margin: const EdgeInsets.symmetric(horizontal: 28),
         decoration: BoxDecoration(
             border: Border(
           bottom: Divider.createBorderSide(context, width: 0.7),
         )),
-
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           reverse: true,
@@ -107,18 +107,20 @@ class ArticleItemWidget extends StatelessWidget {
                           fontSize: 12, // 字体大小
                           color: Color(0xFF2266DB), // 字体颜色
                           wordSpacing: 1, // 字间距
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8),
+                    padding: const EdgeInsets.only(left: 6),
                     child: Container(
-                      margin: EdgeInsets.only(left: 9),
+                      //margin: EdgeInsets.only(left: 9),
+                      padding: EdgeInsets.fromLTRB(9.0, 0, 9.0, 0),
                       //设置 child 居中
                       alignment: Alignment(0, 0),
                       height: 17,
-                      width: 40,
+                      //width: 40,
                       //边框设置
                       decoration: new BoxDecoration(
                         //背景
@@ -135,6 +137,7 @@ class ArticleItemWidget extends StatelessWidget {
                           fontSize: 10,
                           color: Color(0xFFFFFFFF),
                           wordSpacing: 0.83,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -142,11 +145,12 @@ class ArticleItemWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 6),
                     child: Container(
-                      margin: EdgeInsets.only(left: 9),
+                      // margin: EdgeInsets.only(left: 9),
+                      padding: EdgeInsets.fromLTRB(9.0, 0, 9.0, 0),
                       //设置 child 居中
                       alignment: Alignment(0, 0),
                       height: 17,
-                      width: 40,
+                      //width: 40,
                       //边框设置
                       decoration: new BoxDecoration(
                         //背景
@@ -163,56 +167,44 @@ class ArticleItemWidget extends StatelessWidget {
                           fontSize: 10,
                           color: Color(0xFFFFFFFF),
                           wordSpacing: 0.83,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
                 ],
               ),
-              if (item.envelopePic.isEmpty)
-                Padding(
-                  padding: EdgeInsets.only(top: 7),
-                  child: ArticleTitleWidget(item.title),
-                )
-              else
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ArticleTitleWidget(item.title),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            item.desc,
-                            style: Theme.of(context).textTheme.caption,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Image.network(
-                      item.envelopePic,
-                      height: 60,
-                      width: 60,
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 6,
+              ),
               Container(
-                width: 40,
+                alignment: Alignment.topLeft,
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: Text(
+                  item.title,
+                  maxLines: 3,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color(0xFF5D6472),
+                    wordSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              Container(
+                //width: 40,
                 height: 14,
                 child: Text(item.niceDate,
                     style: TextStyle(
                       fontSize: 10,
                       color: Color(0xFF353D4E),
                       wordSpacing: 0.83,
+                      fontWeight: FontWeight.bold,
                     )),
               ),
               Row(
@@ -220,7 +212,7 @@ class ArticleItemWidget extends StatelessWidget {
                   Expanded(
                       child: Row(children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
+                      padding: EdgeInsets.symmetric(vertical: 6),
                       child: ClipOval(
                         child: Image.network(
                           "https://pic.qqtn.com/up/2017-7/2017072711223750856.jpg",
@@ -233,23 +225,30 @@ class ArticleItemWidget extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       child: Container(
                         height: 14,
-                        width: 44,
+                        //width: 44,
                         child: Text(
                           "原创文章",
                           style: TextStyle(
                             fontSize: 10,
                             color: Color(0xFF353D4E),
                             wordSpacing: 0.83,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     )
                   ])),
-                  Image.asset("assets/image/Like.png",
+                  Image.asset(
+                    "assets/image/Like.png",
                     width: 16,
                     height: 16,
                   ),
                 ],
+              ),
+              Divider(
+                height: 1.0,
+                indent: 0.0,
+                color: Color(0xFF353D4E),
               ),
             ],
           ),
@@ -269,27 +268,6 @@ class ArticleItemWidget extends StatelessWidget {
             return _articleItemUI(context, item);
           }).toList(),
         ),
-      ),
-    );
-  }
-}
-
-class ArticleTitleWidget extends StatelessWidget {
-  final String title;
-
-  ArticleTitleWidget(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Html(
-      padding: EdgeInsets.symmetric(vertical: 5),
-      useRichText: false,
-      data: title,
-      defaultTextStyle: Theme.of(context).textTheme.subtitle,
-      linkStyle: TextStyle(
-        fontSize: 12,
-        color: Color(0xFF5D6472),
-        wordSpacing: 1,
       ),
     );
   }
