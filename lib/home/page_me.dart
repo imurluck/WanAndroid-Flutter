@@ -74,7 +74,8 @@ class HomePageMeNotLogin extends State<HomePageMe> {
               Text("WanAndroid-Flutter客户端",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: AppColors.textColorPrimary
+                    color: AppColors.textColorPrimary,
+                    fontWeight: FontWeight.bold
                 ),
               )
             ],
@@ -92,7 +93,7 @@ class HomePageMeNotLogin extends State<HomePageMe> {
                 jumpToLoginPage(context);
               },
               textColor: Colors.white,
-              child: Text("去登陆")
+              child: Text("去登陆", style: TextStyle(fontWeight: FontWeight.bold))
             ),
           )
         )

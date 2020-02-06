@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:wan_android_client/base/assets/iconfont/AppIcon.dart';
 import 'package:wan_android_client/base/style/colors.dart';
 import 'package:wan_android_client/home/page_category.dart';
 import 'package:wan_android_client/home/page_hot.dart';
 import 'package:wan_android_client/home/page_me.dart';
 import 'package:wan_android_client/home/page_qa.dart';
 import 'package:wan_android_client/home/page_search.dart';
+import 'package:wan_android_client/res/iconfont/AppIcon.dart';
 
 class HomeRouter extends StatelessWidget {
 
