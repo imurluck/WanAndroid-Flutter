@@ -14,7 +14,7 @@ Future getArticleContent() async {
     Response response;
     Dio dio = new Dio();
     dio.options.contentType = Headers.formUrlEncodedContentType;
-    response = await dio.get(articlePath['hotPageContext']);
+    response = await dio.get(Apis.HOME_ARTICLE_LIST + "/0/json");
     if (response.statusCode == 200) {
       var data = json.decode(response.toString());
       var model = ArticleModel.fromJson(data);
