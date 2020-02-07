@@ -131,7 +131,7 @@ class ArticleItemWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 8),
                     child: Container(
                       height: 17,
-                      width: 47,
+                      //width: 47,
                       child: Text(
                         isNotBlank(item.author) ? item.author : "匿名",
                         style: TextStyle(
