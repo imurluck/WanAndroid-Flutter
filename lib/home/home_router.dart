@@ -53,7 +53,11 @@ class HomeContainerState extends State<HomeContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: getCurrentPage(),
+      body: IndexedStack(     // 页面保持设置
+        index: currentItemIndex,
+        children: pageList,
+      ),
+      //getCurrentPage(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: currentItemIndex,

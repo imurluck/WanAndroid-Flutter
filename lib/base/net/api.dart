@@ -1,5 +1,6 @@
 // jxq
 
+// json数据地址
 class Apis {
   static const String BASE_HOST = "https://www.wanandroid.com";
 

@@ -1,5 +1,6 @@
 // jxq
 
+// 文章实体类
 class ArticleModel {
   ArticleData data;
   int errorCode;
